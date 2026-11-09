@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CARRIE HOTEL - Java House Style</title>
+<style>
+  *{box-sizing:border-box;font-family:'Segoe UI',Georgia,serif;margin:0;padding:0}
+  body{background:#FBF7F0;color:#2B1D14}
+  /* TOP BAR - JAVA STYLE */
+  .topbar{background:#2B1D14;color:#fff;display:flex;justify-content:space-between;align-items:center;padding:14px 22px;position:sticky;top:0;z-index:100}
+  .logo{font-size:24px;font-weight:900;letter-spacing:1px}
+  .logo span{color:#C69A5B}
+  .logo small{display:block;font-size:10px;letter-spacing:3px;color:#C9A97A;font-weight:400}
+  .topbar a{color:#E8D5B7;text-decoration:none;font-weight:600;font-size:14px;margin-left:18px}
+  .topbar a.active{color:#fff;border-bottom:2px solid #C69A5B}
+  .cart-btn{background:#C69A5B;color:#2B1D14;border:none;padding:10px 18px;border-radius:25px;font-weight:900;cursor:pointer}
+  .cart-btn span{background:#2B1D14;color:#fff;padding:1px 7px;border-radius:50%;margin-left:5px}
+
+  /* HERO - JAVA / CJ'S */
+  .hero{background:#2B1D14;color:#fff;display:flex;flex-wrap:wrap;min-height:380px}
+  .hero-text{flex:1;padding:40px 30px;min-width:300px}
+  .hero-text small{color:#C69A5B;letter-spacing:3px;font-weight:800;font-size:12px}
+  .hero-text h1{font-size:50px;line-height:1.05;margin:14px 0 12px;font-weight:900;font-family:Georgia}
+  .hero-text h1 i{color:#C69A5B;font-weight:400}
+  .hero-text p{color:#D8C6AF;line-height:1.6;margin-bottom:22px}
+  .hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+  .btn-gold{background:#C69A5B;color:#2B1D14;border:none;padding:14px 26px;border-radius:30px;font-weight:900;cursor:pointer;font-size:15px}
+  .btn-outline{background:transparent;color:#fff;border:2px solid #fff;padding:12px 24px;border-radius:30px;font-weight:800;cursor:pointer}
+  .hero-img{flex:1;min-width:300px;position:relative;overflow:hidden}
+  .hero-img img{width:100%;height:100%;object-fit:cover;min-height:300px}
+  .hero-card{position:absolute;bottom:20px;left:20px;right:20px;background:rgba(255,255,255,.95);color:#2B1D14;border-radius:16px;padding:14px;display:flex;justify-content:space-between;align-items:center}
+  .hero-card b{font-size:18px} .hero-card span{font-size:12px;color:#888}
+
+  /* DASHBOARD - JAVA */
+  .dash{max-width:1100px;margin:-26px auto 0;position:relative;z-index:5;padding:0 16px;display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
+  .dash-card{background:#fff;border-radius:18px;padding:18px;box-shadow:0 6px 20px rgba(43,29,20,.12);display:flex;gap:12px;align-items:center;border-left:5px solid #C69A5B}
+  .dash-icon{width:52px;height:52px;border-radius:50%;background:#FBF0DC;display:flex;align-items:center;justify-content:center;font-size:24px}
+  .dash-card h3{font-size:22px;color:#2B1D14} .dash-card p{color:#999;font-size:13px}
+  .dash-card small{color:#2E7D32;font-weight:700;font-size:11px}
+
+  /* MENU */
+  .section{max-width:1100px;margin:28px auto;padding:0 16px}
+  .section-head{display:flex;justify-content:space-between;align-items:end;flex-wrap:wrap;gap:10px}
+  .section h2{font-size:28px;font-family:Georgia} .section p{color:#888}
+  .cats{display:flex;gap:10px;overflow-x:auto;padding:14px 0 6px}
+  .cat{flex-shrink:0;background:#fff;border:1px solid #E8DDD0;padding:10px 18px;border-radius:30px;cursor:pointer;font-weight:700;display:flex;gap:8px;align-items:center}
+  .cat.active{background:#2B1D14;color:#fff;border-color:#2B1D14}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px;margin-top:12px}
+  .card{background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 3px 12px rgba(0,0,0,.07);transition:.2s;position:relative}
+  .card:hover{transform:translateY(-5px);box-shadow:0 10px 25px rgba(0,0,0,.12)}
+  .card img{width:100%;height:180px;object-fit:cover}
+  .badge{position:absolute;top:12px;left:12px;background:#fff;color:#2B1D14;padding:5px 11px;border-radius:20px;font-size:11px;font-weight:900;letter-spacing:1px}
+  .badge.brown{background:#2B1D14;color:#C69A5B}
+  .card-body{padding:16px}
+  .card-body h3{font-size:19px;font-family:Georgia}
+  .stars{color:#C69A5B;font-size:13px;margin:4px 0}
+  .card-body p{color:#888;font-size:13px;line-height:1.5;min-height:38px}
+  .price-row{display:flex;justify-content:space-between;align-items:center;margin-top:10px}
+  .price{font-size:21px;font-weight:900} .price s{font-size:13px;color:#bbb;font-weight:400}
+  .add{background:#2B1D14;color:#fff;border:none;padding:10px 18px;border-radius:25px;font-weight:900;cursor:pointer}
+  .add:hover{background:#C69A5B;color:#2B1D14}
+
+  /* OFFER BANNER - CJ'S STYLE */
+  .offer{max-width:1100px;margin:24px auto;padding:0 16px}
+  .offer-box{background:linear-gradient(90deg,#2E7D32,#1B5E20);color:#fff;border-radius:18px;padding:20px 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+  .offer-box h3{font-size:22px} .offer-box p{opacity:.9;font-size:14px}
+  .offer-box button{background:#fff;color:#1B5E20;border:none;padding:11px 20px;border-radius:25px;font-weight:900;cursor:pointer}
+
+  /* CART */
+  .cart-drawer{position:fixed;right:-380px;top:0;width:360px;max-width:92%;height:100%;background:#fff;z-index:200;transition:.3s;padding:18px;overflow-y:auto;box-shadow:-5px 0 20px rgba(0,0,0,.2)}
+  .cart-drawer.open{right:0}
+  .overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:150} .overlay.show{display:block}
+  .cart-item{display:flex;gap:10px;padding:10px 0;border-bottom:1px solid #eee;align-items:center}
+  .cart-item img{width:55px;height:55px;object-fit:cover;border-radius:12px}
+  .qty button{padding:2px 8px;border:1px solid #ddd;background:#fff;border-radius:6px;cursor:pointer;font-weight:900}
+  .total{font-weight:900;font-size:19px;display:flex;justify-content:space-between;margin:14px 0}
+  .pay-btn{width:100%;background:#2B1D14;color:#fff;padding:14px;border:none;border-radius:12px;font-weight:900;font-size:16px;cursor:pointer}
+  input{width:100%;padding:11px;margin:6px 0;border:1px solid #ddd;border-radius:10px}
+  .modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);justify-content:center;align-items:center;z-index:300;padding:16px}
+  .modal-content{background:#fff;padding:22px;border-radius:18px;width:100%;max-width:430px}
+  .pay-opt{display:flex;gap:8px;margin:12px 0} .pay-opt button{flex:1;padding:11px;border:2px solid #eee;border-radius:12px;background:#fff;cursor:pointer;font-weight:800}
+  .pay-opt button.active{border-color:#2B1D14;background:#FBF0DC}
+  .confirm{background:#2E7D32;color:#fff;border:none;padding:13px;width:100%;border-radius:12px;font-weight:900;font-size:16px;cursor:pointer;margin-top:10px}
+  #receipt{display:none;background:#fff;padding:24px;max-width:420px;margin:20px auto;border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,.1)}
+  #receipt table{width:100%;margin:12px 0} #receipt td{padding:7px 0;border-bottom:1px dashed #ccc;font-size:14px}
+  .receipt-btns{display:none;text-align:center;gap:10px;margin:16px;justify-content:center}
+  @media print{body *{visibility:hidden} #receipt,#receipt *{visibility:visible} #receipt{display:block;position:absolute;left:0;top:0;width:100%} .receipt-btns{display:none!important}}
+  footer{background:#2B1D14;color:#C9A97A;text-align:center;padding:22px;margin-top:30px;font-size:13px}
+  @media(max-width:700px){.hero-text h1{font-size:36px}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="logo">CARRIE<small> HOTEL • NAIROBI</small></div>
+  <div style="display:flex;align-items:center">
+    <a href="#" class="active">Home</a>
+    <a href="#menuSection">Menu</a>
+    <a href="#" onclick="showSales()">Dashboard</a>
+    <button class="cart-btn" onclick="toggleCart(true)">🛒 My Order <span id="cartCount">0</span></button>
+  </div>
+</div>
+
+<div id="hero">
+  <div class="hero">
+    <div class="hero-text">
+      <small>☕ WELCOME TO CARRIE HOTEL</small>
+      <h1>Good Food.<br><i>Good Coffee.</i><br>Good Life.</h1>
+      <p>Like Java House & CJ's - but ours. Fresh breakfast, slow-cooked Pilau, Biryani, and the best Dawa in Nairobi. Order in 30 seconds, pay with M-Pesa, get your receipt.</p>
+      <div class="hero-btns">
+        <button class="btn-gold" onclick="document.getElementById('menuSection').scrollIntoView({behavior:'smooth'})">View Menu →</button>
+        <button class="btn-outline" onclick="showPopular()">⭐ Today's Special</button>
+      </div>
+      <p style="margin-top:18px;font-size:13px;color:#C9A97A">⏱️ Open 6am - 10pm &nbsp; • &nbsp; 📍 Kimathi Street, Nairobi &nbsp; • &nbsp; ★ 4.9</p>
+    </div>
+    <div class="hero-img">
+      <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=900">
+      <div class="hero-card"><div><b>Morning Offer</b><br><span>Tea + Mandazi - Only Ksh 150</span></div><button onclick="addToCart(1)" style="background:#2B1D14;color:#fff;border:none;padding:10px 16px;border-radius:20px;font-weight:900;cursor:pointer">Add +</button></div>
+    </div>
+  </div>
+</div>
+
+<div class="dash">
+  <div class="dash-card"><div class="dash-icon">💰</div><div><h3 id="dashSales">Ksh 0</h3><p>Today's Sales</p><small>▲ Live updating</small></div></div>
+  <div class="dash-card"><div class="dash-icon">🧾</div><div><h3 id="dashOrders">0</h3><p>Orders Today</p><small>▲ All paid</small></div></div>
+  <div class="dash-card"><div class="dash-icon">☕</div><div><h3>Dawa / Coffee</h3><p>Most Ordered Drink</p><small>★ 4.9 rating</small></div></div>
+  <div class="dash-card"><div class="dash-icon">🍽️</div><div><h3>Chicken Biryani</h3><p>Most Popular Dish</p><small>★ 5.0 rating</small></div></div>
+</div>
+
+<div class="section" id="menuSection">
+  <div class="section-head"><div><h2>Our Menu</h2><p>Handcrafted with love, like Java House</p></div><span style="color:#C69A5B;font-weight:800">Fresh Today →</span></div>
+  <div class="cats">
+    <div class="cat active" onclick="filterMenu('all',this)">🍽️ All</div>
+    <div class="cat" onclick="filterMenu('breakfast',this)">☕ Breakfast & Coffee</div>
+    <div class="cat" onclick="filterMenu('lunch',this)">🍛 Lunch / Dinner</div>
+    <div class="cat" onclick="filterMenu('drinks',this)">🥤 Drinks & Juice</div>
+    <div class="cat" onclick="filterMenu('popular',this)">⭐ Popular</div>
+  </div>
+  <div class="grid" id="menuGrid"></div>
+</div>
+
+<div class="offer"><div class="offer-box"><div><h3>🎉 Buy 2 Biryani, Get Free Soda!</h3><p>Today only - automatically applied at checkout for orders over Ksh 1000.</p></div><button onclick="document.getElementById('menuSection').scrollIntoView({behavior:'smooth'})">Claim Offer →</button></div></div>
+
+<div class="overlay" id="overlay" onclick="toggleCart(false)"></div>
+<div class="cart-drawer" id="cartDrawer">
+  <div style="display:flex;justify-content:space-between"><h2>Your Order ☕</h2><button onclick="toggleCart(false)" style="border:none;background:#eee;width:32px;height:32px;border-radius:50%;cursor:pointer;font-weight:900">✕</button></div>
+  <input id="customerName" placeholder="Customer Name e.g. Kevin">
+  <input id="tableNo" placeholder="Table No. e.g. T4">
+  <div id="cartItems"><p style="color:#888;text-align:center;margin:20px 0">Your tray is empty.<br>Add something delicious!</p></div>
+  <div class="total"><span>Total:</span><span id="totalPrice">Ksh 0</span></div>
+  <button class="pay-btn" id="payBtn" onclick="openPay()" disabled>CHECKOUT → Pay Now</button>
+  <button onclick="clearCart()" style="width:100%;padding:10px;margin-top:8px;border:none;border-radius:10px;cursor:pointer">Clear</button>
+</div>
+
+<div class="modal" id="payModal"><div class="modal-content">
+  <h2>Checkout 💳</h2><p>Total: <b id="payTotal" style="color:#2B1D14;font-size:20px"></b></p>
+  <div class="pay-opt">
+    <button id="btnMpesa" class="active" onclick="selectPay('M-Pesa')">📱 M-Pesa</button>
+    <button id="btnCard" onclick="selectPay('Card')">💳 Card</button>
+    <button id="btnCash" onclick="selectPay('Cash')">💵 Cash</button>
+  </div>
+  <div id="mpesaFields"><input id="phone" placeholder="M-Pesa 0712345678"></div>
+  <div id="cardFields" style="display:none"><input placeholder="Card Number"><input placeholder="Expiry"><input placeholder="CVV"></div>
+  <div id="cashFields" style="display:none"><input type="number" id="cashGiven" placeholder="Cash Given" oninput="calcChange()"><p id="changeText" style="font-weight:800"></p></div>
+  <button class="confirm" onclick="confirmPayment()">Confirm Payment ✅</button>
+  <button onclick="closePay()" style="width:100%;padding:10px;margin-top:8px;border:none;border-radius:10px;cursor:pointer">Cancel</button>
+</div></div>
+
+<div id="receipt">
+  <h2 style="text-align:center">☕ CARRIE HOTEL</h2><p style="text-align:center;font-size:13px;color:#666">Nairobi • Tel: 0712 345 678<br>Thank you for visiting!</p><hr>
+  <p><b>Receipt:</b> <span id="rNo"></span><br><b>Date:</b> <span id="rDate"></span><br><b>Customer:</b> <span id="rCustomer"></span><br><b>Table:</b> <span id="rTable"></span><br><b>Payment:</b> <span id="rMethod"></span></p>
+  <table id="rItems"></table>
+  <p style="text-align:right;font-weight:900;font-size:18px">TOTAL: <span id="rTotal"></span></p>
+  <p style="text-align:right" id="rChange"></p><hr><p style="text-align:center">*** Karibu Tena - Welcome Again ***</p>
+</div>
+<div class="receipt-btns" id="receiptBtns">
+  <button onclick="window.print()" style="padding:13px 22px;background:#2B1D14;color:#fff;border:none;border-radius:30px;font-weight:900;cursor:pointer">🖨️ Print Receipt</button>
+  <button onclick="newOrder()" style="padding:13px 22px;background:#C69A5B;color:#2B1D14;border:none;border-radius:30px;font-weight:900;cursor:pointer">New Order →</button>
+</div>
+
+<footer><b style="color:#fff">CARRIE HOTEL</b> • Kimathi Street, Nairobi • Open Daily 6am - 10pm • 0712 345 678</footer>
+
+<script>
+
+let cart=[]; let currentCat='all'; let paymentMethod='M-Pesa'; let totalSales=0; let totalOrders=0;
+function renderMenu(){
+  const grid=document.getElementById('menuGrid'); grid.innerHTML='';
+   const menu = [
+  // BREAKFAST
+  {id:1, name:"Tea + Mandazi", cat:"breakfast", price:150, old:200, desc:"Hot Kenyan tea + 2 soft mandazi", img:"https://images.unsplash.com/photo-1541167760496-1628856ab772?w=500", tag:"MORNING DEAL", rating:"4.8"},
+  {id:2, name:"Full Breakfast", cat:"breakfast", price:450, old:550, desc:"Eggs, sausage, toast, beans + tea / coffee", img:"https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?w=500", tag:"POPULAR", rating:"4.9"},
+  {id:10, name:"Pancakes + Honey", cat:"breakfast", price:350, old:0, desc:"Fluffy pancakes, honey, berries, butter", img:"https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=500", tag:"SWEET", rating:"4.9"},
+  {id:11, name:"Spanish Omelette", cat:"breakfast", price:400, old:0, desc:"Omelette with peppers, onion, cheese + toast", img:"https://images.unsplash.com/photo-1510693206972-df098062cb71?w=500", tag:"", rating:"4.7"},
+
+  // LUNCH / DINNER
+  {id:3, name:"Pilau + Beef", cat:"lunch", price:350, old:400, desc:"Spicy coastal pilau, tender beef stew", img:"https://images.unsplash.com/photo-1512058564366-18510be2db19?w=500", tag:"BESTSELLER", rating:"5.0"},
+  {id:4, name:"Ugali + Sukuma + Beef", cat:"lunch", price:400, old:0, desc:"Kenyan classic - ugali, sukuma, beef", img:"https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500", tag:"", rating:"4.7"},
+  {id:5, name:"Chicken Biryani", cat:"lunch", price:500, old:650, desc:"Fragrant biryani, grilled chicken, salad", img:"https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=500", tag:"CHEF'S CHOICE", rating:"5.0"},
+  {id:6, name:"Fish + Ugali", cat:"lunch", price:550, old:0, desc:"Crispy fried tilapia + ugali + kachumbari", img:"https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=500", tag:"FRESH", rating:"4.8"},
+  {id:12, name:"Grilled Chicken + Chips", cat:"lunch", price:650, old:750, desc:"Half grilled chicken, crispy chips, coleslaw", img:"https://images.unsplash.com/photo-1598103442097-8b74394b95c6?w=500", tag:"GRILLED", rating:"4.9"},
+
+  // FAST FOOD
+  {id:13, name:"Classic Beef Burger", cat:"fastfood", price:550, old:650, desc:"Beef patty, cheese, lettuce, fries", img:"https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=500", tag:"POPULAR", rating:"4.9"},
+  {id:14, name:"Chicken Burger", cat:"fastfood", price:500, old:0, desc:"Crispy chicken, mayo, lettuce, fries", img:"https://images.unsplash.com/photo-1606755962773-d324e0a13086?w=500", tag:"", rating:"4.8"},
+  {id:15, name:"Chicken Pizza 10\"", cat:"fastfood", price:900, old:1100, desc:"Chicken, cheese, peppers, tomato sauce", img:"https://images.unsplash.com/photo-1513104890138-7c749659a591?w=500", tag:"SHARING", rating:"5.0"},
+  {id:16, name:"Shawarma Wrap", cat:"fastfood", price:400, old:0, desc:"Chicken shawarma, garlic sauce, pickles", img:"https://images.unsplash.com/photo-1529006557810-274b9b2fc783?w=500", tag:"STREET FOOD", rating:"4.8"},
+  {id:17, name:"Loaded Fries", cat:"fastfood", price:300, old:0, desc:"Fries + cheese + chicken + sauce", img:"https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=500", tag:"SNACK", rating:"4.7"},
+  {id:18, name:"Chicken Wings (6pc)", cat:"fastfood", price:600, old:0, desc:"Spicy / BBQ wings + dip", img:"https://images.unsplash.com/photo-1527477396000-e27163b481c2?w=500", tag:"SPICY", rating:"4.9"},
+
+  // COCKTAILS / MOCKTAILS
+  {id:19, name:"Virgin Mojito", cat:"cocktail", price:400, old:500, desc:"Mint, lime, soda, ice - no alcohol", img:"https://images.unsplash.com/photo-1551538827-9c037cb4f32a?w=500", tag:"REFRESHING", rating:"4.9"},
+  {id:20, name:"Pina Colada (Mocktail)", cat:"cocktail", price:450, old:0, desc:"Pineapple, coconut cream, ice", img:"https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=500", tag:"TROPICAL", rating:"5.0"},
+  {id:21, name:"Blue Lagoon", cat:"cocktail", price:450, old:0, desc:"Blue curacao syrup, lemon, soda, ice", img:"https://images.unsplash.com/photo-1536935338788-846bb9981813?w=500", tag:"INSTAGRAM", rating:"4.8"},
+  {id:22, name:"Strawberry Daiquiri", cat:"cocktail", price:450, old:0, desc:"Strawberry, lime, ice - sweet & fresh", img:"https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=500", tag:"SWEET", rating:"4.9"},
+  {id:23, name:"Sunset Punch", cat:"cocktail", price:500, old:0, desc:"Orange, mango, grenadine - layered sunset", img:"https://images.unsplash.com/photo-1541544741938-0af808871cc0?w=500", tag:"SIGNATURE", rating:"5.0"},
+
+  // MILKSHAKES
+  {id:24, name:"Oreo Milkshake", cat:"milkshake", price:350, old:400, desc:"Oreo, vanilla ice cream, whipped cream", img:"https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=500", tag:"BESTSELLER", rating:"5.0"},
+  {id:25, name:"Chocolate Milkshake", cat:"milkshake", price:350, old:0, desc:"Thick chocolate, ice cream, chocolate sauce", img:"https://images.unsplash.com/photo-1577805947697-89e18249d767?w=500", tag:"", rating:"4.9"},
+  {id:26, name:"Strawberry Milkshake", cat:"milkshake", price:350, old:0, desc:"Fresh strawberries, vanilla ice cream", img:"https://images.unsplash.com/photo-1553787499-6f9133860278?w=500", tag:"", rating:"4.8"},
+  {id:27, name:"Vanilla Milkshake", cat:"milkshake", price:300, old:0, desc:"Classic vanilla, creamy & smooth", img:"https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=500", tag:"CLASSIC", rating:"4.7"},
+  {id:28, name:"Caramel Frappe", cat:"milkshake", price:400, old:0, desc:"Iced coffee + caramel + milk + cream", img:"https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=500", tag:"COFFEE", rating:"4.9"},
+
+  // DRINKS & JUICE
+  {id:7, name:"Soda 500ml", cat:"drinks", price:120, old:0, desc:"Coke, Fanta, Sprite - ice cold", img:"https://images.unsplash.com/photo-1554866585-cd94860890b7?w=500", tag:"", rating:"4.6"},
+  {id:8, name:"Fresh Juice", cat:"drinks", price:200, old:250, desc:"Mango / Orange / Passion - freshly squeezed", img:"https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=500", tag:"HEALTHY", rating:"4.9"},
+  {id:9, name:"Dawa / Coffee", cat:"drinks", price:250, old:0, desc:"Java-style dawa or cappuccino - signature", img:"https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=500", tag:"SIGNATURE", rating:"4.9"},
+  {id:29, name:"Avocado Smoothie", cat:"drinks", price:300, old:0, desc:"Avocado, milk, honey - thick & healthy", img:"https://images.unsplash.com/photo-1638176066666-ffb2f013c7dd?w=500", tag:"HEALTHY", rating:"4.8"},
+  {id:30, name:"Iced Latte", cat:"drinks", price:350, old:0, desc:"Cold espresso + milk + ice", img:"https://images.unsplash.com/photo-1517701604599-bb29b565090c?w=500", tag:"ICED", rating:"4.9"},
+
+  // DESSERTS
+  {id:31, name:"Chocolate Cake Slice", cat:"dessert", price:250, old:0, desc:"Rich chocolate cake + cream", img:"https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=500", tag:"SWEET", rating:"4.9"},
+  {id:32, name:"Ice Cream Scoops (2)", cat:"dessert", price:200, old:0, desc:"Vanilla / Chocolate / Strawberry", img:"https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=500", tag:"", rating:"4.8"},
+  {id:33, name:"Fruit Salad", cat:"dessert", price:200, old:0, desc:"Fresh mango, banana, apple, grapes", img:"https://images.unsplash.com/photo-1564093497595-593b96d80180?w=500", tag:"HEALTHY", rating:"4.7"},
+]; list = menu.filter(m=> currentCat==='all' ? true : currentCat==='popular' ? ['2','3','5','9'].includes(String(m.id)) : m.cat===currentCat);
+  list.forEach(item=>{
+    grid.innerHTML += `<div class="card">${item.tag?`<div class="badge ${item.tag==='SIGNATURE'?'brown':''}">${item.tag}</div>`:''}<img src="${item.img}"><div class="card-body"><h3>${item.name}</h3><div class="stars">⭐ ${item.rating} • 200+ orders</div><p>${item.desc}</p><div class="price-row"><span class="price">Ksh ${item.price} ${item.old?`<s>Ksh ${item.old}</s>`:''}</span><button class="add" onclick="addToCart(${item.id})">+ ADD</button></div></div></div>`;
+  });
+}
+function filterMenu(cat,el){ currentCat=cat; document.querySelectorAll('.cat').forEach(c=>c.classList.remove('active')); el.classList.add('active'); renderMenu(); }
+function showPopular(){ filterMenu('popular', document.querySelectorAll('.cat')[4]); document.getElementById('menuSection').scrollIntoView({behavior:'smooth'}); }
+function addToCart(id){ let f=cart.find(c=>c.id===id); if(f) f.qty++; else cart.push({id,qty:1}); renderCart(); toggleCart(true); }
+function changeQty(id,d){ let it=cart.find(c=>c.id===id); it.qty+=d; if(it.qty<=0) cart=cart.filter(c=>c.id!==id); renderCart(); }
+function clearCart(){ cart=[]; renderCart(); }
+function toggleCart(open){ document.getElementById('cartDrawer').classList.toggle('open',open); document.getElementById('overlay').classList.toggle('show',open); }
+function renderCart(){
+  const box=document.getElementById('cartItems'); let count=cart.reduce((s,c)=>s+c.qty,0); document.getElementById('cartCount').innerText=count;
+  if(!cart.length){ box.innerHTML='<p style="color:#888;text-align:center;margin:20px 0">Your tray is empty.</p>'; document.getElementById('totalPrice').innerText='Ksh 0'; document.getElementById('payBtn').disabled=true; return; }
+  let total=0; box.innerHTML=cart.map(c=>{ let m=menu.find(x=>x.id===c.id); let sub=m.price*c.qty; total+=sub; return `<div class="cart-item"><img src="${m.img}"><div style="flex:1"><b>${m.name}</b><br><small>Ksh ${m.price} = Ksh ${sub}</small><div class="qty"><button onclick="changeQty(${m.id},-1)">-</button> ${c.qty} <button onclick="changeQty(${m.id},1)">+</button></div></div></div>`}).join('');
+  document.getElementById('totalPrice').innerText='Ksh '+total; document.getElementById('payBtn').disabled=false;
+}
+function getTotal(){ return cart.reduce((s,c)=>s+menu.find(m=>m.id===c.id).price*c.qty,0); }
+function openPay(){ if(!cart.length) return alert('Add items first!'); toggleCart(false); document.getElementById('payTotal').innerText='Ksh '+getTotal(); document.getElementById('payModal').style.display='flex'; }
+function closePay(){ document.getElementById('payModal').style.display='none'; }
+function selectPay(m){ paymentMethod=m; document.querySelectorAll('.pay-opt button').forEach(b=>b.classList.remove('active')); document.getElementById('mpesaFields').style.display='none'; document.getElementById('cardFields').style.display='none'; document.getElementById('cashFields').style.display='none'; if(m==='M-Pesa'){document.getElementById('btnMpesa').classList.add('active'); document.getElementById('mpesaFields').style.display='block';} if(m==='Card'){document.getElementById('btnCard').classList.add('active'); document.getElementById('cardFields').style.display='block';} if(m==='Cash'){document.getElementById('btnCash').classList.add('active'); document.getElementById('cashFields').style.display='block';} }
+function calcChange(){ let g=Number(document.getElementById('cashGiven').value||0); let ch=g-getTotal(); document.getElementById('changeText').innerText=ch>=0?`Change: Ksh ${ch}`:`Need: Ksh ${Math.abs(ch)}`; }
+function confirmPayment(){
+  let total=getTotal(); let name=document.getElementById('customerName').value||'Walk-in'; let table=document.getElementById('tableNo').value||'-';
+  if(paymentMethod==='M-Pesa' && document.getElementById('phone').value.length<10) return alert('Enter valid M-Pesa number');
+  if(paymentMethod==='Cash' && Number(document.getElementById('cashGiven').value||0)<total) return alert('Cash is less than total!');
+  if(paymentMethod==='M-Pesa') alert('STK Push sent to '+document.getElementById('phone').value);
+  totalSales+=total; totalOrders++; document.getElementById('dashSales').innerText='Ksh '+totalSales; document.getElementById('dashOrders').innerText=totalOrders;
+  localStorage.setItem('carrie_sales', totalSales); localStorage.setItem('carrie_orders', totalOrders);
+  document.getElementById('rNo').innerText='CH-'+Math.floor(1000+Math.random()*9000);
+  document.getElementById('rDate').innerText=new Date().toLocaleString();
+  document.getElementById('rCustomer').innerText=name; document.getElementById('rTable').innerText=table; document.getElementById('rMethod').innerText=paymentMethod;
+  document.getElementById('rTotal').innerText='Ksh '+total;
+  if(paymentMethod==='Cash'){ let given=Number(document.getElementById('cashGiven').value); document.getElementById('rChange').innerText=`Cash: Ksh ${given} | Change: Ksh ${given-total}`; } else document.getElementById('rChange').innerText='';
+  document.getElementById('rItems').innerHTML=cart.map(c=>{let m=menu.find(x=>x.id===c.id); return `<tr><td>${m.name} x ${c.qty}</td><td style="text-align:right">Ksh ${m.price*c.qty}</td></tr>`}).join('');
+  closePay(); document.getElementById('hero').style.display='none'; document.querySelector('.dash').style.display='none'; document.getElementById('menuSection').style.display='none'; document.querySelector('.offer').style.display='none'; document.querySelector('footer').style.display='none';
+  document.getElementById('receipt').style.display='block'; document.getElementById('receiptBtns').style.display='flex';
+  alert('Payment Successful! Receipt ready.');
+}
+function newOrder(){ cart=[]; renderCart(); document.getElementById('hero').style.display='block'; document.querySelector('.dash').style.display='grid'; document.getElementById('menuSection').style.display='block'; document.querySelector('.offer').style.display='block'; document.querySelector('footer').style.display='block'; document.getElementById('receipt').style.display='none'; document.getElementById('receiptBtns').style.display='none'; }
+function showSales(){ alert(`📊 TODAY'S SALES\n\nTotal Sales: Ksh ${totalSales}\nTotal Orders: ${totalOrders}\n\nMost Popular: Chicken Biryani`); }
+if(localStorage.getItem('carrie_sales')){ totalSales=Number(localStorage.getItem('carrie_sales')); totalOrders=Number(localStorage.getItem('carrie_orders')); document.getElementById('dashSales').innerText='Ksh '+totalSales; document.getElementById('dashOrders').innerText=totalOrders; }
+renderMenu(); renderCart();
+</script>
+</body>
+</html>
